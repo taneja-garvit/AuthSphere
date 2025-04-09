@@ -9,7 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-func signup(c *gin.Context) {
+func Signup(c *gin.Context) {
 	var user models.User // Empty user struct to hold request data
 
 	// Bind JSON from request body to user struct (like req.body in Express)
@@ -38,7 +38,7 @@ func signup(c *gin.Context) {
 	})
 }
 
-func login(c *gin.Context){
+func Login(c *gin.Context){
 	var user models.User;
 	if err := c.ShouldBindJSON(&user); err != nil {          // similar to req.body all data came from json
 		c.JSON(400, gin.H{"error": "Invalid req body"}) // Gin’s way
