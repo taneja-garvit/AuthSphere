@@ -22,5 +22,4 @@ func InitDB() error {
 		UserCollection = client.Database("authdb").Collection("users")
 		log.Println("Connected to MongoDB")
 		return nil
-
 }
