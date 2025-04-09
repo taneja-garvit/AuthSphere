@@ -15,8 +15,8 @@ func main() {
 
 	router := routes.SetupRouter()
 
-	log.Println("Server starting on port 8000")
-	err = router.run(":8000")
+	log.Println("Server starting on port 8080")
+	err = router.Run(":8080")
 
 	if err!=nil{
 		log.Fatal("Server failed to start ", err)

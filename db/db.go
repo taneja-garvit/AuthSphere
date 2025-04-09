@@ -12,7 +12,7 @@ var Client *mongo.Client             // Global MongoDB client (like a db connect
 var UserCollection *mongo.Collection // Global reference to "users" collection
 
 func InitDB() error {
-	clientOptions := options.Client().ApplyURI("Mongo connection string")
+	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
 
 	client, err := mongo.Connect(context.Background(), clientOptions)
 	if err != nil {

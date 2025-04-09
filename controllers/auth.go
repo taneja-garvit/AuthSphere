@@ -23,7 +23,7 @@ func Signup(c *gin.Context) {
 	err := db.UserCollection.FindOne(context.Background(), 
         bson.M{"email": user.Email}).Decode(&existingUser) // bson.M is a map representing the MongoDB query, where email is the key and user.Email is the value you're searching for. So, the query is looking for a document where the email field matches the email provided by the user object.
 	//After executing the query, the result is decoded into the existingUser variable. The Decode() function is used to convert the BSON document returned by MongoDB into a Go struct.
-	if err != nil {
+	if err == nil {
 		c.JSON(400, gin.H{"error": "User already exists"}) // Gin’s way
 		return
 	}
